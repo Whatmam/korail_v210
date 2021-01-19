@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+mount -t yaffs2 /dev/mtdblock3 /storage
+
+# /root fs mount 
+if [ ! -s /storage/root ]; then
+        mkdir -p /storage/root
+        rm -rf /root
+        ln -s /storage/root /root
+fi
+
+# /root/.barc_profile sym link
+if [ ! -s /root/.bash_profile ]; then
+	ln -sf /etc/.bash_profile /root/.bash_profile
+fi
+

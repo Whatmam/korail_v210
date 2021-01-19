@@ -1,0 +1,1 @@
+../root/config/netmaskstorage.sh

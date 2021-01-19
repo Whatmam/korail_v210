@@ -1,0 +1,99 @@
+#
+# Character device configuration
+#
+
+menu "Character misc devices"
+
+config KORAIL_MAIN_BOARD
+	bool "korail v210 board type"
+	depends on KORAIL_DEVICE
+	default n
+	---help---
+	  korail v210 board type.
+	  
+config KORAIL_DEVICE_HWID
+	bool "korail v210 device HW ID"
+	depends on KORAIL_DEVICE
+	default n
+	---help---
+	  korail v210 board device hw ID. 
+
+config KORAIL_DEVICE_DIPSWITCH
+	bool "korail v210 device HW DIP Switch"
+	depends on KORAIL_DEVICE
+	default n
+	---help---
+	  korail v210 board device hw dip Switch.
+
+config KORAIL_DEVICE_TCOLOR_LED
+	bool "korail v210 device 3 color led"
+	depends on KORAIL_DEVICE
+	default n
+	---help---
+	  korail v210 board device 3 color led.
+
+config KORAIL_DEVICE_BUZZER
+	bool "korail v210 device Buzzer"
+	depends on KORAIL_DEVICE
+	default n
+	---help---
+	  korail v210 board device Buzzer.
+
+config KORAIL_DEVICE_FND
+	bool "korail v210 device FND"
+	depends on KORAIL_DEVICE
+	default n
+	---help---
+	  korail v210 board device FND.
+
+config KORAIL_DEVICE_SIM
+	bool "korail v210 device SIM"
+	depends on KORAIL_DEVICE
+	default n
+	---help---
+	  korail v210 board device SIM.
+	  
+config KORAIL_DEVICE_KEYS
+	bool "korail v210 device HW KEYS"
+	depends on KORAIL_DEVICE
+	default n
+	---help---
+	  korail v210 board device hw keys.
+
+config KORAIL_DEVICE_RC531
+	bool "korail v210 device RF RC531"
+	depends on KORAIL_DEVICE
+	default n
+	---help---
+	  korail v210 board device rf rc531
+	  
+config KORAIL_DEVICE_GATE_IO
+	bool "korail v210 device HW Gate IO"
+	depends on KORAIL_DEVICE
+	default n
+	---help---
+	  korail v210 board device hw gate io.
+
+config KORAIL_DEVICE_RS485
+	bool "korail v210 device RS-485 Flow control"
+	depends on KORAIL_DEVICE
+	default n
+	---help---
+	  korail v210 board device RS-485 Flow control.
+
+config KORAIL_DEVICE_DS1338
+	bool "korail v210 device ds1338z rtc nv ram"
+	depends on KORAIL_DEVICE
+	default n
+	---help---
+	  korail v210 board device ds1338z rtc nv ram.
+
+config KORAIL_DEVICE_TTLIO
+	bool "korail v210 device ttl io"
+	depends on KORAIL_DEVICE
+	default n
+	---help---
+	  korail v210 board device ttl io.
+
+endmenu
+

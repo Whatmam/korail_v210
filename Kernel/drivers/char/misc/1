@@ -1,0 +1,35 @@
+--- korail_sim_20141108.c	2014-11-08 13:46:48.392886190 +0900
++++ korail_sim.c	2014-12-16 21:05:42.537170659 +0900
+@@ -145,7 +145,7 @@
+ #endif //(CONFIG_KORAIL_SPINLOCK)
+ 		__raw_writeb( hxSIM_IF_WriteData, korail_simsam_w_addr );
+ #if defined(CONFIG_KORAIL_SPINLOCK)
+-        spin_unlock_irqrestore(&mr_lock, flags);
++		spin_unlock_irqrestore(&mr_lock, flags);
+ #endif //(CONFIG_KORAIL_SPINLOCK)
+ 	}
+ 
+@@ -198,6 +198,10 @@
+ 	
+ 	unsigned char writedat;
+ 
++	if(addr == 0){
++		addr = korail_simsam_latch2_addr;
++	}
++
+ 	if (slot == 0 || slot > 10)
+ 		return;
+ 
+@@ -240,10 +244,10 @@
+ 	else {
+ 		if (!wmode){
+ 			writedat &= 0xf7;	// tx mode
+-			udelay(100);
+ 		}
+-		if (!rmode)
++		if (!rmode){
+ 			writedat &= 0xef;	// rx mode
++		}
+ 	}
+ #if defined(CONFIG_KORAIL_SPINLOCK)
+         spin_lock_irqsave(&mr_lock, flags);

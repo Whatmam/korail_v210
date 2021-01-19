@@ -1,0 +1,6 @@
+#!/bin/sh
+#/bin/mount -n -t ramfs ramfs /tmp
+
+exec /sbin/init
+~                                                                                              
+~                                              

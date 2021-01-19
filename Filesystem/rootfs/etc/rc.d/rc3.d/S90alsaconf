@@ -1,0 +1,36 @@
+#!/bin/sh
+
+volume_set()
+{
+  echo "Setting up Sound volume $LEFT, $RIGHT"
+  amixer -c 0 sset "Speaker",0 $LEFT $RIGHT on
+  if [ "$?" = "0" ]; then 
+	echo "Done"
+  else 
+	echo "FAILED"; 
+	exit 1
+  fi
+}
+
+. /root/config/soundconf
+
+case "$1" in
+
+    start)
+	echo "Setting up sound volume"
+
+	if [ -n "$LEFT" ] && [ -n "$RIGHT" ]; then
+	  volume_set $LEFT $RIGHT
+	else
+		exit 1
+	fi
+
+	;;
+
+    *)
+    echo "Usage: $0 (start)"
+    exit 1
+    ;;
+esac
+
+exit 0

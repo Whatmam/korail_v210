@@ -1,0 +1,16 @@
+#!/bin/sh
+
+if [ ! -s /root/config ]; then
+	mkdir -p /root/config
+fi
+
+# alsa volume configure file
+if [ ! -s /root/config/soundconf ]; then
+        cp -rfd /etc/soundconf /root/config/soundconf
+fi
+
+# autorun script file
+if [ ! -s /root/config/auto_run.sh ]; then
+	cp -rfd /etc/auto_run.sh /root/config/auto_run.sh
+fi
+

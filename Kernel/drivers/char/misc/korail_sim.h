@@ -1,0 +1,78 @@
+/*	@(#)sim.h	1.0a	2013/01/03	(SOLIDTEK)	*/
+
+#ifndef _SIM_SAM_IO_COMMAND_H_
+#define _SIM_SAM_IO_COMMAND_H_
+
+// SIM Power On
+#define _IOCTL_SIM1_PWR_ON				1101 
+#define _IOCTL_SIM2_PWR_ON 				1102 
+#define _IOCTL_SIM3_PWR_ON 				1103 
+#define _IOCTL_SIM4_PWR_ON  			1104
+#define _IOCTL_SIM5_PWR_ON 				1105 
+#define _IOCTL_SIM6_PWR_ON				1106  
+#define _IOCTL_SIM7_PWR_ON 				1107 
+#define _IOCTL_SIM8_PWR_ON				1108 
+
+// SIM Power Off
+#define _IOCTL_SIM1_PWR_OFF				2201  
+#define _IOCTL_SIM2_PWR_OFF				2202  
+#define _IOCTL_SIM3_PWR_OFF				2203  
+#define _IOCTL_SIM4_PWR_OFF				2204  
+#define _IOCTL_SIM5_PWR_OFF				2205
+#define _IOCTL_SIM6_PWR_OFF				2206  
+#define _IOCTL_SIM7_PWR_OFF				2207 
+#define _IOCTL_SIM8_PWR_OFF				2208 
+
+// SIM Reset Active
+#define _IOCTL_SIM1_RST_HIGH			3301 
+#define _IOCTL_SIM2_RST_HIGH 			3302 
+#define _IOCTL_SIM3_RST_HIGH			3303 
+#define _IOCTL_SIM4_RST_HIGH			3304  
+#define _IOCTL_SIM5_RST_HIGH 			3305 
+#define _IOCTL_SIM6_RST_HIGH 			3306 
+#define _IOCTL_SIM7_RST_HIGH 			3307 
+#define _IOCTL_SIM8_RST_HIGH			3308   
+
+// SIM Reset Release
+#define _IOCTL_SIM1_RST_LOW				4401  
+#define _IOCTL_SIM2_RST_LOW 			4402 
+#define _IOCTL_SIM3_RST_LOW 			4403 
+#define _IOCTL_SIM4_RST_LOW				4404  
+#define _IOCTL_SIM5_RST_LOW				4405  
+#define _IOCTL_SIM6_RST_LOW				4406  
+#define _IOCTL_SIM7_RST_LOW				4407  
+#define _IOCTL_SIM8_RST_LOW				4408 
+
+//SIM Read Mode
+#define _IOCTL_SIM1_READ_MODE			5501 
+#define _IOCTL_SIM2_READ_MODE			5502  
+#define _IOCTL_SIM3_READ_MODE			5503 
+#define _IOCTL_SIM4_READ_MODE			5504  
+#define _IOCTL_SIM5_READ_MODE			5505  
+#define _IOCTL_SIM6_READ_MODE			5506  
+#define _IOCTL_SIM7_READ_MODE			5507  
+#define _IOCTL_SIM8_READ_MODE			5508 
+
+//SIM Write Mode
+#define _IOCTL_SIM1_WRITE_MODE			6601 
+#define _IOCTL_SIM2_WRITE_MODE			6602 
+#define _IOCTL_SIM3_WRITE_MODE			6603  
+#define _IOCTL_SIM4_WRITE_MODE			6604  
+#define _IOCTL_SIM5_WRITE_MODE			6605  
+#define _IOCTL_SIM6_WRITE_MODE			6606  
+#define _IOCTL_SIM7_WRITE_MODE			6607  
+#define _IOCTL_SIM8_WRITE_MODE			6608  
+
+//SAM 1 UART Enable ( z )
+#define _IOCTL_SAM_1_UART_ENABLE		7701 
+#define _IOCTL_SAM_1_RESET_HIGH			7801 
+#define _IOCTL_SAM_1_RESET_LOW			7901 
+
+//SAM 2 UART Enable ( a )
+#define _IOCTL_SAM_2_UART_ENABLE		8701  
+#define _IOCTL_SAM_2_RESET_HIGH			8801
+#define _IOCTL_SAM_2_RESET_LOW			8901 
+
+#endif //_SIM_SAM_IO_COMMAND_H_
+
+

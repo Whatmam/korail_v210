@@ -1,0 +1,53 @@
+#!/bin/sh
+#
+# This script will be executed *after* all the other init scripts.
+# You can put your own initialization stuff in here if you don't
+# want to do the full Sys V style init stuff.
+
+#touch /var/lock/subsys/local
+
+# USB Auto mount
+mkdir -p /media/sda4
+mount -t auto -o sync /dev/sda4 /media/sda4
+
+if grep -qs "^/dev/sda4 " /proc/mounts ; then
+	echo "# Detected USB Storage. Mount USB Storage. #"
+else
+	rm -rf /media/sda4
+fi
+
+#TELNETD
+/usr/sbin/utelnetd -d
+
+#FTPD
+/usr/sbin/stupid-ftpd -f /etc/stupid-ftpd.conf
+
+#SD/USB AutoMount
+echo /sbin/mdev > /proc/sys/kernel/hotplug
+
+#MAC Address Configuration
+if [ -e /etc/macstorage.sh ]; then
+        /etc/macstorage.sh
+fi
+
+#IP Configuration 
+if [ -e /etc/ipstorage.sh ]; then
+        /etc/ipstorage.sh
+else ifconfig eth0 192.168.0.100
+fi
+
+#Netmask Configuration
+if [ -e /etc/netmaskstorage.sh ]; then
+        /etc/netmaskstorage.sh
+fi
+
+#Gateway Configuration
+if [ -e /etc/gwstorage.sh ]; then
+        /etc/gwstorage.sh
+fi
+
+# shell script running
+if [ -s /root/config/auto_run.sh ]; then
+        /root/config/auto_run.sh
+fi
+

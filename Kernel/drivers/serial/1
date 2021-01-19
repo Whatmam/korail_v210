@@ -1,0 +1,63 @@
+--- ./serial_core.c	2014-11-07 16:30:49.494545173 +0900
++++ serial_core.c_ori	2014-11-06 19:29:03.496185675 +0900
+@@ -89,7 +89,6 @@
+ 	spin_unlock_irqrestore(&port->lock, flags);
+ }
+ 
+-
+ static void __uart_start(struct tty_struct *tty)
+ {
+ 	struct uart_state *state = tty->driver_data;
+@@ -491,10 +490,6 @@
+ 	uart_start(tty);
+ }
+ 
+-extern void SIM_IF_interface_nE_set(int rmode, int wmode);
+-static int uart_get_lsr_info(struct uart_state *state,
+-                             unsigned int __user *value);
+-
+ static int
+ uart_write(struct tty_struct *tty, const unsigned char *buf, int count)
+ {
+@@ -504,8 +499,6 @@
+ 	unsigned long flags;
+ 	int c, ret = 0;
+ 
+-	struct uart_port *uport = state->uart_port;
+-
+ 	/*
+ 	 * This means you called this function _after_ the port was
+ 	 * closed.  No cookie for you.
+@@ -537,14 +530,6 @@
+ 	spin_unlock_irqrestore(&port->lock, flags);
+ 
+ 	uart_start(tty);
+-
+-	if(tty->index == 3){
+-	while(1){
+-        	if(uport->ops->tx_empty(uport)) break;
+-	}
+-	SIM_IF_interface_nE_set(0, 1);
+-	}
+-
+ 	return ret;
+ }
+ 
+@@ -1373,8 +1358,6 @@
+ 	mutex_unlock(&port->mutex);
+ }
+ 
+-extern void SIM_IF_interface_nE_set(int rmode, int wmode);
+-
+ static void uart_wait_until_sent(struct tty_struct *tty, int timeout)
+ {
+ 	struct uart_state *state = tty->driver_data;
+@@ -1430,7 +1413,7 @@
+ 		if (time_after(jiffies, expire))
+ 			break;
+ 	}
+-	
++
+ 	set_current_state(TASK_RUNNING); /* might not be needed */
+ 	unlock_kernel();
+ }
